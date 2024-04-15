@@ -1,0 +1,2229 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Breast Cancer &#8212; My Jupyter Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Ejercicio1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Parte 1: Limpieza de los datos" href="Ejercicio3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">My Jupyter Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Breast Cancer
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Ejercicio3.html">Parte 1: Limpieza de los datos</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ADASYN.html">Resumen</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Ejercicio1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Breast Cancer</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Breast Cancer</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-bayesiana">Clasificación Bayesiana</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arboles-de-decision">Arboles de decisión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">XGBoost</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#boston-housing">Boston Housing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arbol-de-decision">Árbol de decisión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">XGBoost</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-finales">Resultados finales</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="breast-cancer">
+<h1>Breast Cancer<a class="headerlink" href="#breast-cancer" title="Link to this heading">#</a></h1>
+<p>Como se mencionó en el trabajo anterior, es preferible usar la métrica recall, puesto que minimiza el número de tumores maligos predichos, por lo que es menos probable que catalogue un tumor maligno como benigno y ponga la vida de alguien en riesgo por falta de detección</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cleaning</span> <span class="kn">import</span> <span class="n">reduce_vif</span>
+</pre></div>
+</div>
+<p>Importación de la base de datos</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_breast_cancer</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">load_breast_cancer</span><span class="p">()</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">feature_names</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span> <span class="n">data</span><span class="o">.</span><span class="n">target</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>area error</th>
+      <th>compactness error</th>
+      <th>concavity error</th>
+      <th>concave points error</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>153.40</td>
+      <td>0.04904</td>
+      <td>0.05373</td>
+      <td>0.01587</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>74.08</td>
+      <td>0.01308</td>
+      <td>0.01860</td>
+      <td>0.01340</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>94.03</td>
+      <td>0.04006</td>
+      <td>0.03832</td>
+      <td>0.02058</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>27.23</td>
+      <td>0.07458</td>
+      <td>0.05661</td>
+      <td>0.01867</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>94.44</td>
+      <td>0.02461</td>
+      <td>0.05688</td>
+      <td>0.01885</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X_clean</span> <span class="o">=</span> <span class="n">reduce_vif</span><span class="p">(</span> <span class="n">X</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Dropped col worst texture with vif 63306.17203588469
+Dropped col worst symmetry with vif 63220.51620336962
+Dropped col worst smoothness with vif 63065.70576575069
+Dropped col worst radius with vif 61649.81043724271
+Dropped col worst perimeter with vif 54345.98850641613
+Dropped col worst fractal dimension with vif 50272.811021865375
+Dropped col worst concavity with vif 50212.61746969545
+Dropped col worst concave points with vif 50206.924195754895
+Dropped col worst compactness with vif 50074.052594314235
+Dropped col worst area with vif 45851.514134748824
+Dropped col texture error with vif 45050.18204804375
+Dropped col symmetry error with vif 45006.932477719776
+Dropped col smoothness error with vif 44889.116160428784
+Dropped col radius error with vif 44442.27282332614
+Dropped col perimeter error with vif 35015.04006468088
+Dropped col mean texture with vif 32694.04098810877
+Dropped col mean symmetry with vif 32659.280116484188
+Dropped col mean smoothness with vif 32529.52309425759
+Dropped col mean radius with vif 31807.594519378392
+Dropped col mean perimeter with vif 542.8530090373666
+Dropped col mean fractal dimension with vif 83.0518453152788
+Dropped col mean concavity with vif 79.16240270763147
+Dropped col mean concave points with vif 24.622927588745615
+Dropped col mean compactness with vif 18.149793554937688
+Dropped col mean area with vif 13.509553041668504
+Dropped col fractal dimension error with vif 13.402388859380014
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X_clean</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>area error</th>
+      <th>compactness error</th>
+      <th>concavity error</th>
+      <th>concave points error</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>153.40</td>
+      <td>0.04904</td>
+      <td>0.05373</td>
+      <td>0.01587</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>74.08</td>
+      <td>0.01308</td>
+      <td>0.01860</td>
+      <td>0.01340</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>94.03</td>
+      <td>0.04006</td>
+      <td>0.03832</td>
+      <td>0.02058</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>27.23</td>
+      <td>0.07458</td>
+      <td>0.05661</td>
+      <td>0.01867</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>94.44</td>
+      <td>0.02461</td>
+      <td>0.05688</td>
+      <td>0.01885</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>564</th>
+      <td>158.70</td>
+      <td>0.02891</td>
+      <td>0.05198</td>
+      <td>0.02454</td>
+    </tr>
+    <tr>
+      <th>565</th>
+      <td>99.04</td>
+      <td>0.02423</td>
+      <td>0.03950</td>
+      <td>0.01678</td>
+    </tr>
+    <tr>
+      <th>566</th>
+      <td>48.55</td>
+      <td>0.03731</td>
+      <td>0.04730</td>
+      <td>0.01557</td>
+    </tr>
+    <tr>
+      <th>567</th>
+      <td>86.22</td>
+      <td>0.06158</td>
+      <td>0.07117</td>
+      <td>0.01664</td>
+    </tr>
+    <tr>
+      <th>568</th>
+      <td>19.15</td>
+      <td>0.00466</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+    </tr>
+  </tbody>
+</table>
+<p>569 rows × 4 columns</p>
+</div>
+<p>División de set de entrenamiento y prueba</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span> <span class="n">X_clean</span><span class="p">,</span> <span class="n">y</span> <span class="p">)</span>
+</pre></div>
+</div>
+<section id="clasificacion-bayesiana">
+<h2>Clasificación Bayesiana<a class="headerlink" href="#clasificacion-bayesiana" title="Link to this heading">#</a></h2>
+<p>Versión manual</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">BernoulliNB</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span> <span class="n">X_clean</span> <span class="p">)</span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">BernoulliNB</span><span class="p">(),</span> <span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;recall&#39;</span><span class="p">)</span>
+
+<span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0.8234920634920636
+</pre></div>
+</div>
+<p>Versión con Pipeline</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+    <span class="p">(</span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">BernoulliNB</span><span class="p">())</span>
+<span class="p">])</span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">X_clean</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;recall&#39;</span><span class="p">)</span>
+
+<span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0.8262698412698413
+</pre></div>
+</div>
+<p>La diferencia entre los scores se puede deber a la fuga de datos generados por el escalamiento de datos previo a la generación del modelo.</p>
+</section>
+<section id="arboles-de-decision">
+<h2>Arboles de decisión<a class="headerlink" href="#arboles-de-decision" title="Link to this heading">#</a></h2>
+<p>Versión manual</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Depth&#39;</span><span class="p">,</span> <span class="s1">&#39;recall&#39;</span><span class="p">]</span> <span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">4</span> <span class="p">,</span> <span class="mi">9</span> <span class="p">):</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span> <span class="n">max_depth</span><span class="o">=</span><span class="n">i</span> <span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span> <span class="p">),</span> <span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;recall&#39;</span><span class="p">)</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;Depth&#39;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;recall&#39;</span><span class="p">:</span> <span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="p">}</span>
+
+<span class="n">results</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Depth</th>
+      <th>recall</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4</td>
+      <td>0.924286</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>0.913175</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6</td>
+      <td>0.888175</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7</td>
+      <td>0.874286</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>0.871508</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+
+<span class="n">classifier</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">4</span> <span class="p">,</span> <span class="mi">9</span> <span class="p">)</span> <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;recall&#39;</span><span class="p">)</span>
+<span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_clean</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">best_params</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span>
+<span class="n">best_score</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_score_</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Parámetros:&quot;</span><span class="p">,</span> <span class="n">best_params</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span> <span class="n">best_score</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Parámetros: {&#39;max_depth&#39;: 4}
+Recall: 0.9242857142857142
+</pre></div>
+</div>
+</section>
+<section id="random-forest">
+<h2>Random Forest<a class="headerlink" href="#random-forest" title="Link to this heading">#</a></h2>
+<p>Versión manual</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span>  <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Depth&#39;</span><span class="p">,</span> <span class="s1">&#39;Trees&#39;</span><span class="p">,</span> <span class="s1">&#39;recall&#39;</span><span class="p">]</span> <span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">4</span> <span class="p">,</span> <span class="mi">9</span> <span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">10</span> <span class="p">):</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">RandomForestClassifier</span><span class="p">(</span> <span class="n">max_depth</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span> <span class="p">),</span> <span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;recall&#39;</span><span class="p">)</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;Depth&#39;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;Trees&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;recall&#39;</span><span class="p">:</span> <span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="p">}</span>
+
+<span class="n">results</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Depth</th>
+      <th>Trees</th>
+      <th>recall</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4</td>
+      <td>5</td>
+      <td>0.938175</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>10</td>
+      <td>0.943968</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>15</td>
+      <td>0.946746</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>20</td>
+      <td>0.946746</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>25</td>
+      <td>0.943968</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">max</span><span class="p">()[</span><span class="s1">&#39;recall&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0.9467460317460317
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">classifier</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span> <span class="p">)</span> <span class="p">],</span>
+    <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">5</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">10</span> <span class="p">)</span> <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;recall&#39;</span><span class="p">)</span>
+<span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_clean</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">best_params</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span>
+<span class="n">best_score</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_score_</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Parámetros:&quot;</span><span class="p">,</span> <span class="n">best_params</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span> <span class="n">best_score</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Parámetros: {&#39;max_depth&#39;: 4, &#39;n_estimators&#39;: 15}
+Recall: 0.9467460317460317
+</pre></div>
+</div>
+</section>
+<section id="xgboost">
+<h2>XGBoost<a class="headerlink" href="#xgboost" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xgboost</span>  <span class="kn">import</span> <span class="n">XGBClassifier</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Depth&#39;</span><span class="p">,</span> <span class="s1">&#39;Trees&#39;</span><span class="p">,</span> <span class="s1">&#39;L. rate&#39;</span><span class="p">,</span> <span class="s1">&#39;recall&#39;</span><span class="p">]</span> <span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">4</span> <span class="p">,</span> <span class="mi">9</span> <span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">10</span> <span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">5</span> <span class="p">):</span>
+            <span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">XGBClassifier</span><span class="p">(</span> <span class="n">max_depth</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span> <span class="n">learning_rate</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span> <span class="p">),</span> <span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;recall&#39;</span><span class="p">,</span> <span class="n">n_jobs</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;Depth&#39;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;Trees&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;L. rate&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;recall&#39;</span><span class="p">:</span> <span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="p">}</span>
+
+<span class="n">results</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Depth</th>
+      <th>Trees</th>
+      <th>L. rate</th>
+      <th>recall</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4</td>
+      <td>5</td>
+      <td>0.10000</td>
+      <td>0.949524</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>5</td>
+      <td>0.01000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>5</td>
+      <td>0.00100</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>5</td>
+      <td>0.00010</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>5</td>
+      <td>0.00001</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">max</span><span class="p">()[</span><span class="s1">&#39;recall&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span> <span class="p">)</span> <span class="p">],</span>
+    <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">5</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">10</span> <span class="p">)</span> <span class="p">],</span>
+    <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">5</span> <span class="p">)</span> <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">XGBClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;recall&#39;</span><span class="p">)</span>
+<span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_clean</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">best_params</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span>
+<span class="n">best_score</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_score_</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Parámetros:&quot;</span><span class="p">,</span> <span class="n">best_params</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span> <span class="n">best_score</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Parámetros: {&#39;learning_rate&#39;: 0.01, &#39;max_depth&#39;: 4, &#39;n_estimators&#39;: 5}
+Recall: 1.0
+</pre></div>
+</div>
+<p>Los resultados</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">roc_auc_score</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">models</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;BernoulliNB&quot;</span><span class="p">,</span> <span class="n">BernoulliNB</span><span class="p">(),</span> <span class="p">{}),</span>
+    <span class="p">(</span><span class="s2">&quot;DecisionTree&quot;</span><span class="p">,</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span> <span class="p">{}),</span>
+    <span class="p">(</span><span class="s2">&quot;RandomForest&quot;</span><span class="p">,</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span> <span class="p">{}),</span>
+    <span class="p">(</span><span class="s2">&quot;XGBoost&quot;</span><span class="p">,</span> <span class="n">XGBClassifier</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span> <span class="p">{})</span>
+<span class="p">]</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">params</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">y_pred_proba</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;predict_proba&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+    
+    <span class="n">precision</span> <span class="o">=</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">recall</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">f1</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_proba</span><span class="p">)</span> <span class="k">if</span> <span class="n">y_pred_proba</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+    
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">name</span><span class="p">,</span> <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">auc</span><span class="p">])</span>
+
+<span class="n">results_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Model&quot;</span><span class="p">,</span> <span class="s2">&quot;Precision&quot;</span><span class="p">,</span> <span class="s2">&quot;Recall&quot;</span><span class="p">,</span> <span class="s2">&quot;F1 Score&quot;</span><span class="p">,</span> <span class="s2">&quot;AUC&quot;</span><span class="p">])</span>
+<span class="n">results_df</span>
+
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Model</th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1 Score</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BernoulliNB</td>
+      <td>0.750000</td>
+      <td>0.984076</td>
+      <td>0.851240</td>
+      <td>0.858352</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>DecisionTree</td>
+      <td>0.758270</td>
+      <td>0.949045</td>
+      <td>0.842999</td>
+      <td>0.807749</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>RandomForest</td>
+      <td>0.756039</td>
+      <td>0.996815</td>
+      <td>0.859890</td>
+      <td>0.863273</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>XGBoost</td>
+      <td>0.612086</td>
+      <td>1.000000</td>
+      <td>0.759371</td>
+      <td>0.792401</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Por los resultados, podemos ver que el modelo que maximiza el recall, es un modelo XGBoost con profundidad 4, <span class="math notranslate nohighlight">\(\nu = 0.01\)</span> y 5 estimadores. Aún así, es el que peor desempeño obtuvo en otras métricas.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="boston-housing">
+<h1>Boston Housing<a class="headerlink" href="#boston-housing" title="Link to this heading">#</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mglearn</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mglearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_extended_boston</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X_clean</span> <span class="o">=</span> <span class="n">reduce_vif</span><span class="p">(</span> <span class="n">X</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Dropped col 103.0 with vif inf
+Dropped col 102.0 with vif inf
+Dropped col 101.0 with vif inf
+Dropped col 100.0 with vif inf
+Dropped col 99.0 with vif inf
+Dropped col 98.0 with vif inf
+Dropped col 97.0 with vif inf
+Dropped col 96.0 with vif inf
+Dropped col 95.0 with vif inf
+Dropped col 94.0 with vif inf
+Dropped col 93.0 with vif inf
+Dropped col 92.0 with vif inf
+Dropped col 91.0 with vif inf
+Dropped col 90.0 with vif inf
+Dropped col 89.0 with vif inf
+Dropped col 88.0 with vif inf
+Dropped col 87.0 with vif inf
+Dropped col 86.0 with vif inf
+Dropped col 85.0 with vif inf
+Dropped col 84.0 with vif inf
+Dropped col 83.0 with vif inf
+Dropped col 82.0 with vif inf
+Dropped col 81.0 with vif inf
+Dropped col 80.0 with vif inf
+Dropped col 79.0 with vif inf
+Dropped col 78.0 with vif inf
+Dropped col 77.0 with vif inf
+Dropped col 76.0 with vif inf
+Dropped col 75.0 with vif inf
+Dropped col 74.0 with vif inf
+Dropped col 73.0 with vif inf
+Dropped col 72.0 with vif inf
+Dropped col 71.0 with vif inf
+Dropped col 70.0 with vif inf
+Dropped col 69.0 with vif inf
+Dropped col 68.0 with vif inf
+Dropped col 67.0 with vif inf
+Dropped col 66.0 with vif inf
+Dropped col 65.0 with vif inf
+Dropped col 64.0 with vif inf
+Dropped col 63.0 with vif inf
+Dropped col 62.0 with vif inf
+Dropped col 61.0 with vif inf
+Dropped col 60.0 with vif inf
+Dropped col 59.0 with vif inf
+Dropped col 58.0 with vif inf
+Dropped col 57.0 with vif inf
+Dropped col 56.0 with vif inf
+Dropped col 55.0 with vif inf
+Dropped col 54.0 with vif inf
+Dropped col 53.0 with vif inf
+Dropped col 52.0 with vif inf
+Dropped col 51.0 with vif inf
+Dropped col 50.0 with vif inf
+Dropped col 49.0 with vif inf
+Dropped col 48.0 with vif 1346281.6963565508
+Dropped col 47.0 with vif 1320337.0328633178
+Dropped col 46.0 with vif 1301422.0813645376
+Dropped col 45.0 with vif 1263484.9108551014
+Dropped col 44.0 with vif 1156525.8235163095
+Dropped col 43.0 with vif 1156420.4311001496
+Dropped col 42.0 with vif 1130972.6590758632
+Dropped col 41.0 with vif 1112118.8289185707
+Dropped col 40.0 with vif 1111983.4174159167
+Dropped col 39.0 with vif 1103841.2032959189
+Dropped col 38.0 with vif 1095373.3319310762
+Dropped col 37.0 with vif 1079473.9966043278
+Dropped col 36.0 with vif 1079418.1975485373
+Dropped col 35.0 with vif 1078102.7615766579
+Dropped col 34.0 with vif 1065479.5086273584
+Dropped col 33.0 with vif 954935.5716944332
+Dropped col 32.0 with vif 932086.2637821351
+Dropped col 31.0 with vif 929393.7230950865
+Dropped col 30.0 with vif 927618.1668583998
+Dropped col 29.0 with vif 907195.1078493975
+Dropped col 28.0 with vif 905889.8090825254
+Dropped col 27.0 with vif 896909.5148233331
+Dropped col 26.0 with vif 877374.2013817845
+Dropped col 25.0 with vif 876296.4010351859
+Dropped col 24.0 with vif 874177.7500446256
+Dropped col 23.0 with vif 874176.4876008927
+Dropped col 22.0 with vif 632015.2581415928
+Dropped col 21.0 with vif 6644.49434478578
+Dropped col 20.0 with vif 6214.28009225289
+Dropped col 19.0 with vif 5930.265237708079
+Dropped col 18.0 with vif 5865.861819563112
+Dropped col 17.0 with vif 5865.853152114421
+Dropped col 16.0 with vif 5782.276045524795
+Dropped col 15.0 with vif 5778.311737636222
+Dropped col 14.0 with vif 24.714436314764924
+Dropped col 13.0 with vif 24.558573695096555
+Dropped col 12.0 with vif 24.55271748545112
+Dropped col 11.0 with vif 24.55077296778318
+Dropped col 10.0 with vif 24.541531486873993
+Dropped col 9.0 with vif 24.365332542910693
+Dropped col 8.0 with vif 14.003149917329047
+Dropped col 7.0 with vif 13.919131411917435
+Dropped col 6.0 with vif 13.893467219259236
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X_clean</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000000</td>
+      <td>0.18</td>
+      <td>0.067815</td>
+      <td>0.0</td>
+      <td>0.314815</td>
+      <td>0.577505</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.000236</td>
+      <td>0.00</td>
+      <td>0.242302</td>
+      <td>0.0</td>
+      <td>0.172840</td>
+      <td>0.547998</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.000236</td>
+      <td>0.00</td>
+      <td>0.242302</td>
+      <td>0.0</td>
+      <td>0.172840</td>
+      <td>0.694386</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.000293</td>
+      <td>0.00</td>
+      <td>0.063050</td>
+      <td>0.0</td>
+      <td>0.150206</td>
+      <td>0.658555</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.000705</td>
+      <td>0.00</td>
+      <td>0.063050</td>
+      <td>0.0</td>
+      <td>0.150206</td>
+      <td>0.687105</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>501</th>
+      <td>0.000633</td>
+      <td>0.00</td>
+      <td>0.420455</td>
+      <td>0.0</td>
+      <td>0.386831</td>
+      <td>0.580954</td>
+    </tr>
+    <tr>
+      <th>502</th>
+      <td>0.000438</td>
+      <td>0.00</td>
+      <td>0.420455</td>
+      <td>0.0</td>
+      <td>0.386831</td>
+      <td>0.490324</td>
+    </tr>
+    <tr>
+      <th>503</th>
+      <td>0.000612</td>
+      <td>0.00</td>
+      <td>0.420455</td>
+      <td>0.0</td>
+      <td>0.386831</td>
+      <td>0.654340</td>
+    </tr>
+    <tr>
+      <th>504</th>
+      <td>0.001161</td>
+      <td>0.00</td>
+      <td>0.420455</td>
+      <td>0.0</td>
+      <td>0.386831</td>
+      <td>0.619467</td>
+    </tr>
+    <tr>
+      <th>505</th>
+      <td>0.000462</td>
+      <td>0.00</td>
+      <td>0.420455</td>
+      <td>0.0</td>
+      <td>0.386831</td>
+      <td>0.473079</td>
+    </tr>
+  </tbody>
+</table>
+<p>506 rows × 6 columns</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span> <span class="n">X_clean</span><span class="p">,</span> <span class="n">y</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Dado que esta regresión no requiere hiperparámetros ni escalado de datos, bastará con la generación del modelo.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">BayesianRidge</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">BayesianRidge</span><span class="p">()</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span> <span class="n">mse</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R^2:&quot;</span><span class="p">,</span> <span class="n">r2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>RMSE: 5.72422243657148
+R^2: 0.5820983222977625
+</pre></div>
+</div>
+<section id="arbol-de-decision">
+<h2>Árbol de decisión<a class="headerlink" href="#arbol-de-decision" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Assuming X_scaled and y are your features and labels</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Depth&#39;</span><span class="p">,</span> <span class="s1">&#39;MSE&#39;</span><span class="p">,</span> <span class="s1">&#39;R^2&#39;</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">):</span>
+    <span class="n">regressor</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">scores_mse</span> <span class="o">=</span> <span class="o">-</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">X_clean</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">)</span>
+    <span class="n">scores_r2</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">X_clean</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">)</span>
+    
+    <span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Depth&#39;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;MSE&#39;</span><span class="p">:</span> <span class="n">scores_mse</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="s1">&#39;R^2&#39;</span><span class="p">:</span> <span class="n">scores_r2</span><span class="o">.</span><span class="n">mean</span><span class="p">()}</span>
+
+<span class="n">results</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Depth</th>
+      <th>MSE</th>
+      <th>R^2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4</td>
+      <td>47.881421</td>
+      <td>-1.104367</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>58.197278</td>
+      <td>-2.476104</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6</td>
+      <td>70.858490</td>
+      <td>-3.419201</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7</td>
+      <td>75.141397</td>
+      <td>-4.801361</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>79.066248</td>
+      <td>-4.883838</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>La explicación del <span class="math notranslate nohighlight">\(R^2\)</span> se puede encontrar aquí: <a class="reference external" href="https://towardsdatascience.com/explaining-negative-r-squared-17894ca26321">https://towardsdatascience.com/explaining-negative-r-squared-17894ca26321</a>, pero en escencia, se dan valores negativos cuando el modelo predice la variable respuesta peor que un modelo constante que retorna siempre la media.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">regressor</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">)]</span>
+<span class="p">}</span>
+
+<span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">)</span>
+<span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_clean</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">best_params</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span>
+<span class="n">best_score</span> <span class="o">=</span> <span class="o">-</span><span class="n">grid_search</span><span class="o">.</span><span class="n">best_score_</span>  <span class="c1"># Take the negative to get MSE</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best Parameters:&quot;</span><span class="p">,</span> <span class="n">best_params</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best MSE:&quot;</span><span class="p">,</span> <span class="n">best_score</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Best Parameters: {&#39;max_depth&#39;: 4}
+Best MSE: 47.8814214874713
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">regressor</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">)]</span>
+<span class="p">}</span>
+
+<span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">)</span>
+<span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_clean</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">best_params</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span>
+<span class="n">best_score</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_score_</span>  <span class="c1"># Take the negative to get MSE</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best Parameters:&quot;</span><span class="p">,</span> <span class="n">best_params</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best R^2:&quot;</span><span class="p">,</span> <span class="n">best_score</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Best Parameters: {&#39;max_depth&#39;: 4}
+Best R^2: -1.104367077003224
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h2>Random Forest<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Depth&#39;</span><span class="p">,</span> <span class="s1">&#39;Trees&#39;</span><span class="p">,</span> <span class="s1">&#39;MSE&#39;</span><span class="p">,</span> <span class="s1">&#39;R^2&#39;</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">regressor</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">scores_mse</span> <span class="o">=</span> <span class="o">-</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">X_clean</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">)</span>
+        <span class="n">scores_r2</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">X_clean</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">)</span>
+        
+        <span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Depth&#39;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;Trees&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;MSE&#39;</span><span class="p">:</span> <span class="n">scores_mse</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="s1">&#39;R^2&#39;</span><span class="p">:</span> <span class="n">scores_r2</span><span class="o">.</span><span class="n">mean</span><span class="p">()}</span>
+
+<span class="n">results</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Depth</th>
+      <th>Trees</th>
+      <th>MSE</th>
+      <th>R^2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4</td>
+      <td>5</td>
+      <td>34.766108</td>
+      <td>0.010018</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>10</td>
+      <td>32.571282</td>
+      <td>0.082020</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>15</td>
+      <td>32.494404</td>
+      <td>0.072480</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>20</td>
+      <td>31.867860</td>
+      <td>0.075231</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>25</td>
+      <td>31.488796</td>
+      <td>0.076304</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">results</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Depth</th>
+      <th>Trees</th>
+      <th>MSE</th>
+      <th>R^2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4</td>
+      <td>5</td>
+      <td>34.766108</td>
+      <td>0.010018</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>10</td>
+      <td>32.571282</td>
+      <td>0.082020</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>15</td>
+      <td>32.494404</td>
+      <td>0.072480</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>20</td>
+      <td>31.867860</td>
+      <td>0.075231</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>25</td>
+      <td>31.488796</td>
+      <td>0.076304</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>4</td>
+      <td>30</td>
+      <td>32.102933</td>
+      <td>0.045308</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>4</td>
+      <td>35</td>
+      <td>31.615452</td>
+      <td>0.076428</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>4</td>
+      <td>40</td>
+      <td>31.226574</td>
+      <td>0.071318</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>4</td>
+      <td>45</td>
+      <td>31.468311</td>
+      <td>0.048010</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>4</td>
+      <td>50</td>
+      <td>31.315379</td>
+      <td>0.061626</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>5</td>
+      <td>5</td>
+      <td>38.214430</td>
+      <td>-0.276892</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>5</td>
+      <td>10</td>
+      <td>34.982822</td>
+      <td>-0.157419</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>5</td>
+      <td>15</td>
+      <td>34.915417</td>
+      <td>-0.216604</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>5</td>
+      <td>20</td>
+      <td>34.029162</td>
+      <td>-0.166275</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>5</td>
+      <td>25</td>
+      <td>33.438062</td>
+      <td>-0.152460</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>5</td>
+      <td>30</td>
+      <td>33.795906</td>
+      <td>-0.160293</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>5</td>
+      <td>35</td>
+      <td>33.141826</td>
+      <td>-0.088163</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>5</td>
+      <td>40</td>
+      <td>32.622444</td>
+      <td>-0.096594</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>5</td>
+      <td>45</td>
+      <td>32.818188</td>
+      <td>-0.131144</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>5</td>
+      <td>50</td>
+      <td>32.564593</td>
+      <td>-0.096418</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>6</td>
+      <td>5</td>
+      <td>38.544257</td>
+      <td>-0.207476</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>6</td>
+      <td>10</td>
+      <td>37.427726</td>
+      <td>-0.375445</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>6</td>
+      <td>15</td>
+      <td>36.733992</td>
+      <td>-0.430453</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>6</td>
+      <td>20</td>
+      <td>34.893727</td>
+      <td>-0.279512</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>6</td>
+      <td>25</td>
+      <td>33.755048</td>
+      <td>-0.226830</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>6</td>
+      <td>30</td>
+      <td>34.466766</td>
+      <td>-0.286255</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>6</td>
+      <td>35</td>
+      <td>33.724054</td>
+      <td>-0.204135</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>6</td>
+      <td>40</td>
+      <td>33.136167</td>
+      <td>-0.206413</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>6</td>
+      <td>45</td>
+      <td>33.226287</td>
+      <td>-0.193386</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>6</td>
+      <td>50</td>
+      <td>32.822166</td>
+      <td>-0.143083</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>7</td>
+      <td>5</td>
+      <td>37.219519</td>
+      <td>-0.242167</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>7</td>
+      <td>10</td>
+      <td>36.977551</td>
+      <td>-0.392013</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>7</td>
+      <td>15</td>
+      <td>35.788518</td>
+      <td>-0.342091</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>7</td>
+      <td>20</td>
+      <td>34.432608</td>
+      <td>-0.272858</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>7</td>
+      <td>25</td>
+      <td>34.024405</td>
+      <td>-0.249124</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>7</td>
+      <td>30</td>
+      <td>34.303980</td>
+      <td>-0.264675</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>7</td>
+      <td>35</td>
+      <td>33.728431</td>
+      <td>-0.187957</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>7</td>
+      <td>40</td>
+      <td>32.987389</td>
+      <td>-0.146079</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>7</td>
+      <td>45</td>
+      <td>33.260962</td>
+      <td>-0.175985</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>7</td>
+      <td>50</td>
+      <td>32.870736</td>
+      <td>-0.127700</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>8</td>
+      <td>5</td>
+      <td>37.688317</td>
+      <td>-0.253550</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>8</td>
+      <td>10</td>
+      <td>35.786831</td>
+      <td>-0.128893</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>8</td>
+      <td>15</td>
+      <td>35.850802</td>
+      <td>-0.296612</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>8</td>
+      <td>20</td>
+      <td>34.671280</td>
+      <td>-0.238545</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>8</td>
+      <td>25</td>
+      <td>34.391073</td>
+      <td>-0.227171</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>8</td>
+      <td>30</td>
+      <td>34.762659</td>
+      <td>-0.268420</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>8</td>
+      <td>35</td>
+      <td>34.144845</td>
+      <td>-0.191317</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>8</td>
+      <td>40</td>
+      <td>33.716304</td>
+      <td>-0.205125</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>8</td>
+      <td>45</td>
+      <td>33.806146</td>
+      <td>-0.189767</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>8</td>
+      <td>50</td>
+      <td>33.441433</td>
+      <td>-0.143658</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Dado que el <span class="math notranslate nohighlight">\(R^2\)</span> es mínimo, se buscará reducir el MSE lo más que se pueda, en este caso es en el índice 7, con 40 árboles y 4 de profundidad máxima.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">regressor</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">)],</span>
+    <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="p">}</span>
+
+<span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">)</span>
+<span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_clean</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">best_params</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span>
+<span class="n">best_score</span> <span class="o">=</span> <span class="o">-</span><span class="n">grid_search</span><span class="o">.</span><span class="n">best_score_</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best Parameters:&quot;</span><span class="p">,</span> <span class="n">best_params</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best MSE:&quot;</span><span class="p">,</span> <span class="n">best_score</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Best Parameters: {&#39;max_depth&#39;: 4, &#39;n_estimators&#39;: 40}
+Best MSE: 31.226574256687353
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2>XGBoost<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Depth&#39;</span><span class="p">,</span> <span class="s1">&#39;Trees&#39;</span><span class="p">,</span> <span class="s1">&#39;Learning Rate&#39;</span><span class="p">,</span> <span class="s1">&#39;MSE&#39;</span><span class="p">,</span> <span class="s1">&#39;R^2&#39;</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+            <span class="n">regressor</span> <span class="o">=</span> <span class="n">XGBRegressor</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">scores_mse</span> <span class="o">=</span> <span class="o">-</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">X_clean</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">scores_r2</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">X_clean</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+            
+            <span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Depth&#39;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;Trees&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;Learning Rate&#39;</span><span class="p">:</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
+                                          <span class="s1">&#39;MSE&#39;</span><span class="p">:</span> <span class="n">scores_mse</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="s1">&#39;R^2&#39;</span><span class="p">:</span> <span class="n">scores_r2</span><span class="o">.</span><span class="n">mean</span><span class="p">()}</span>
+
+<span class="n">results</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Depth</th>
+      <th>Trees</th>
+      <th>Learning Rate</th>
+      <th>MSE</th>
+      <th>R^2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4</td>
+      <td>5</td>
+      <td>0.10000</td>
+      <td>53.990609</td>
+      <td>-0.299513</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>5</td>
+      <td>0.01000</td>
+      <td>86.529409</td>
+      <td>-1.146103</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>5</td>
+      <td>0.00100</td>
+      <td>91.521877</td>
+      <td>-1.271545</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>5</td>
+      <td>0.00010</td>
+      <td>92.043544</td>
+      <td>-1.284624</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>5</td>
+      <td>0.00001</td>
+      <td>92.095905</td>
+      <td>-1.285937</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Depth             8.000000
+Trees            50.000000
+Learning Rate     0.100000
+MSE              92.095905
+R^2               0.267295
+dtype: float64
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">)],</span>
+    <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
+    <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+<span class="p">}</span>
+
+<span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">XGBRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">)</span>
+<span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_clean</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">best_params</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span>
+<span class="n">best_score</span> <span class="o">=</span> <span class="o">-</span><span class="n">grid_search</span><span class="o">.</span><span class="n">best_score_</span>  <span class="c1"># Take the negative to get the actual MSE</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best Parameters:&quot;</span><span class="p">,</span> <span class="n">best_params</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best MSE:&quot;</span><span class="p">,</span> <span class="n">best_score</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Best Parameters: {&#39;learning_rate&#39;: 0.1, &#39;max_depth&#39;: 4, &#39;n_estimators&#39;: 25}
+Best MSE: 32.61838071368801
+</pre></div>
+</div>
+</section>
+<section id="resultados-finales">
+<h2>Resultados finales<a class="headerlink" href="#resultados-finales" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">mean</span><span class="p">,</span> <span class="nb">abs</span><span class="p">,</span> <span class="n">sqrt</span>
+
+<span class="n">models</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;Bayesian Ridge&quot;</span><span class="p">,</span> <span class="n">BayesianRidge</span><span class="p">()),</span>
+    <span class="p">(</span><span class="s2">&quot;Decision Tree&quot;</span><span class="p">,</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">4</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;Random Forest&quot;</span><span class="p">,</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">40</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;XGBoost&quot;</span><span class="p">,</span> <span class="n">XGBRegressor</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">25</span><span class="p">))</span>
+<span class="p">]</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Model&quot;</span><span class="p">,</span> <span class="s2">&quot;RMSE&quot;</span><span class="p">,</span> <span class="s2">&quot;R2&quot;</span><span class="p">,</span> <span class="s2">&quot;MAPE&quot;</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">mean</span><span class="p">(</span><span class="nb">abs</span><span class="p">((</span><span class="n">y_true</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">)</span> <span class="o">/</span> <span class="n">y_true</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    
+    <span class="n">rmse</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">mape</span> <span class="o">=</span> <span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;Model&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;RMSE&quot;</span><span class="p">:</span> <span class="n">rmse</span><span class="p">,</span> <span class="s2">&quot;R2&quot;</span><span class="p">:</span> <span class="n">r2</span><span class="p">,</span> <span class="s2">&quot;MAPE&quot;</span><span class="p">:</span> <span class="n">mape</span><span class="p">})</span>
+
+<span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Model</th>
+      <th>RMSE</th>
+      <th>R2</th>
+      <th>MAPE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bayesian Ridge</td>
+      <td>5.724222</td>
+      <td>0.582098</td>
+      <td>21.214606</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Decision Tree</td>
+      <td>5.467618</td>
+      <td>0.618726</td>
+      <td>15.424934</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Random Forest</td>
+      <td>5.246252</td>
+      <td>0.648974</td>
+      <td>15.361242</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>XGBoost</td>
+      <td>4.915800</td>
+      <td>0.691802</td>
+      <td>14.608670</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Curiosamente, los problemas vistos en el <span class="math notranslate nohighlight">\(R^2\)</span> desaparecen con el conjunto de prueba. Aún así vemos que ningún modelo es ideal para la predicción.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="Ejercicio3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Parte 1: Limpieza de los datos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Breast Cancer</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-bayesiana">Clasificación Bayesiana</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arboles-de-decision">Arboles de decisión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">XGBoost</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#boston-housing">Boston Housing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arbol-de-decision">Árbol de decisión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">XGBoost</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-finales">Resultados finales</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
