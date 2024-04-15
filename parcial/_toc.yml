@@ -4,7 +4,11 @@
 format: jb-book
 root: Ejercicio1
 chapters:
-- file: Ejercicio3
-- file: ADASYN
-- file: BayesianOpt
-- file: Modelos
+- title: Detección de Fraude
+  file: Ejercicio3
+- title: ADASYN
+  file: ADASYN
+- title: Optimización Bayesiana
+  file: BayesianOpt
+- title: Modelos
+  file: Modelos
