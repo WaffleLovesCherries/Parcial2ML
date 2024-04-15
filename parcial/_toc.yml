@@ -6,3 +6,4 @@ root: Ejercicio1
 chapters:
 - file: Ejercicio3
 - file: ADASYN
+- file: BayesianOpt

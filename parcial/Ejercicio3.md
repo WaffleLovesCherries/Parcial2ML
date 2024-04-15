@@ -1927,21 +1927,1725 @@ with open( 'DataModels.pkl', 'wb' ) as f:
     dump( ( y_train, y_bal, y_test ), f )
 ```
 
-### Clasificación Bayesiana
 
-### Árboles de decisión
-
-### Random Forest
-
-### XGBoost
-
-### K-NN
-
-### Regresión logística con penalización
-
-## Comparación de modelos
+```python
+with open( 'DataModels.pkl', 'rb' ) as f:
+    X_train, X_bal, X_test = load( f )
+    y_train, y_bal, y_test = load( f )
+```
 
 
 ```python
-
+from pickle import load, dump
 ```
+
+
+```python
+from sklearn.metrics import precision_score, recall_score, f1_score, roc_auc_score, roc_curve, confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns
+from numpy import newaxis
+
+def evaluate_model(model, X_test, y_test):
+    y_proba = model.predict_proba(X_test)[:, 1]
+    
+    y_pred = model.predict(X_test)
+
+    if not set(y_pred).issubset({0, 1}):
+        raise ValueError("Predictions contain values other than 0 and 1")
+    
+    precision = precision_score(y_test, y_pred)
+    recall = recall_score(y_test, y_pred)
+    f1 = f1_score(y_test, y_pred)
+    auc = roc_auc_score(y_test, y_proba)
+    
+    return {
+        'Precision': precision,
+        'Recall': recall,
+        'F1': f1,
+        'AUC': auc
+    }
+
+
+def plot_roc_curve(model, X_test, y_test):
+    y_proba = model.predict_proba(X_test)[:, 1]
+    
+    fpr, tpr, _ = roc_curve(y_test, y_proba)
+    
+    plt.figure(figsize=(10, 6))
+    plt.plot(fpr, tpr, label=f'Curva ROC(area = {roc_auc_score(y_test, y_proba)})' )
+    plt.plot([0, 1], [0, 1], 'k--')
+    plt.xlim([0.0, 1.0])
+    plt.ylim([0.0, 1.05])
+    plt.xlabel('Porcentaje de Falsos Positivos')
+    plt.ylabel('Porcentaje de Verdaderos Positivos')
+    plt.title('Curva ROC')
+    plt.legend(loc="lower right")
+    plt.show()
+
+def plot_confusion_matrix(model, X_test, y_test):
+    y_pred = model.predict(X_test)
+    
+    cm = confusion_matrix(y_test, y_pred)
+    
+    cm_norm = cm.astype('float') / cm.sum(axis=1)[:, newaxis] * 100
+    
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(cm_norm, annot=True, cmap="Blues", fmt=".2f", cbar=False, annot_kws={"size": 14})
+    plt.xlabel('Predicho')
+    plt.ylabel('Verdadero')
+    plt.title('Matriz de confusión')
+    plt.show()
+```
+
+
+```python
+indexes = []
+results = []
+```
+
+### Clasificación Bayesiana
+
+
+```python
+from pandas import DataFrame
+with open( 'Models/NaiveBayesModel.pkl', 'rb' ) as f:
+    NBayes_model_base = load( f )
+    NBayes_model_ada = load( f )
+```
+
+#### Base
+
+Los resultados del modelo en el set de prueba son los siguientes:
+
+
+```python
+result = evaluate_model( NBayes_model_base, X_test, y_test )
+indexes.append( 'Naive Bayes Base' )
+results.append( result )
+DataFrame( [result], index = ['Naive Bayes'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Naive Bayes</th>
+      <td>0.482731</td>
+      <td>0.1463</td>
+      <td>0.224547</td>
+      <td>0.751902</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Los puntajes del modelo son muy bajos, lo que implica que el modelo no va a ser un buen clasificador para la variable respuesta. Lo único rescatable puede ser su puntaje de AUC, pero como se verá en próximos modelos, es uno de los más bajos.
+
+
+```python
+plot_roc_curve( NBayes_model_base, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_89_0.png)
+    
+
+
+La curva ROC nos muestra que la clasificación es pasable para detectar la categoría de la variable respuesta, aún así, se encuentra muy lejos de ser un buen modelo.
+
+
+```python
+plot_confusion_matrix( NBayes_model_base, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_91_0.png)
+    
+
+
+En esta gráfica se puede evidenciar lo que será el problema para muchos modelos en este trabajo: tiene una mayor tendencia a predecir una etiqueta como negativa, ya que el desbalance genera una tendencia para los modelos de sobreajustarse a la categoría mayoritaria.
+
+#### AdaSyn
+
+Los resultados del modelo se ven a continuación:
+
+
+```python
+result = evaluate_model( NBayes_model_ada, X_test, y_test )
+indexes.append( 'Naive Bayes AdaSyn' )
+results.append( result )
+DataFrame( [result], index = ['Naive Bayes'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Naive Bayes</th>
+      <td>0.078335</td>
+      <td>0.701315</td>
+      <td>0.140928</td>
+      <td>0.752869</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Es evidente la diferencia abismal entre los dos modelos, ya que sus precision y recall estan casi intercambiados, esto sin mejorar su AUC.
+
+
+```python
+plot_roc_curve( NBayes_model_ada, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_97_0.png)
+    
+
+
+Su curva ROC presenta un comportamiento similar al base, como se evidencia en su similitud de valores AUC.
+
+
+```python
+plot_confusion_matrix( NBayes_model_ada, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_99_0.png)
+    
+
+
+Ahora biem, esta gráfica permite entender la importancia del rebalanceamiento de los datos, ya que permitió homogeneizar el porcentaje de tanto verdaderos positivos como de verdaderos negativos. Cabe aclarar que las deficiencias en los scores se deben al hecho que la variable de prueba no está rebalanceada, por lo que los negativos que no llega a predecir suman más al error que aquellas positivas que no predice.
+
+### Árboles de decisión
+
+El modelo resultante queda de la siguiente forma
+
+
+```python
+with open( 'Models/DecisionTreeModel.pkl', 'rb' ) as f:
+    DTree_model_base = load( f )
+    DTree_model_ada = load( f )
+```
+
+#### Base
+
+Los parámetros del árbol son los siguientes
+
+
+```python
+DataFrame( [DTree_model_base.best_params_], index = ['Decision Tree base'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>max_depth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Decision Tree base</th>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+result = evaluate_model( DTree_model_base, X_test, y_test )
+indexes.append( 'Decision Tree Base' )
+results.append( result )
+DataFrame( [result], index = ['Decision Tree'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Decision Tree</th>
+      <td>0.782021</td>
+      <td>0.239289</td>
+      <td>0.366449</td>
+      <td>0.811308</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Está claro que a comparación del modelo anterior, presenta mejores scores en todos los tipos. Incluso es capaz de tener un recall relativamente alto con respecto al resto de modelos base.
+
+
+```python
+from numpy import argsort
+
+feature_importances = DTree_model_base.best_estimator_.feature_importances_
+sorted_indices = argsort(feature_importances)
+sorted_feature_names = [X_train.columns[i] for i in sorted_indices]
+
+plt.figure(figsize=(10, 6))
+plt.barh(range(len(feature_importances)), feature_importances[sorted_indices], align='center')
+plt.yticks(range(len(feature_importances)), sorted_feature_names)
+plt.xlabel('Feature Importance')
+plt.ylabel('Feature')
+plt.title('Feature Importances (XGBoost)')
+plt.show()
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_109_0.png)
+    
+
+
+Se puede ver que la variable que mas influye en la desición del árbol es C1 y el código de producto, recordado que está codificada en la base de datos.
+
+
+```python
+plot_roc_curve( DTree_model_base, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_111_0.png)
+    
+
+
+La curva ROC indica que el modelo es apropiado para las predicciones, incluso se puede ver como se ajusta mejor al limite izquierdo del gráfico.
+
+
+```python
+plot_confusion_matrix( DTree_model_base, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_113_0.png)
+    
+
+
+Como se mencionó antes, el modelo no es muy bueno detectando fraudes. De todos modos hay que tener en cuenta que el porcentaje de verdaderos positivos es relativamente alto con respecto al resto.
+
+#### AdaSyn
+
+
+```python
+DataFrame( [DTree_model_ada.best_params_], index = ['Decision Tree AdaSyn'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>max_depth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Decision Tree base</th>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+El modelo comparte profundidad con su contraparte base.
+
+
+```python
+result = evaluate_model( DTree_model_ada, X_test, y_test )
+indexes.append( 'Decision Tree AdaSyn' )
+results.append( result )
+DataFrame( [result], index = ['Decision Tree'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Decision Tree</th>
+      <td>0.113877</td>
+      <td>0.606865</td>
+      <td>0.191769</td>
+      <td>0.795088</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Al igual que en el modelo anterior, el recall aumenta de forma drástica, disminuyendo la presición. Tambien cabe resaltar la pérdida importante de F1 y AUC que presenta el modelo en comparación a la base, por lo que se puede decir que es un peor modelo para predecir la variable respuesta.
+
+
+```python
+feature_importances = DTree_model_ada.best_estimator_.feature_importances_
+sorted_indices = argsort(feature_importances)
+sorted_feature_names = [X_train.columns[i] for i in sorted_indices]
+
+plt.figure(figsize=(10, 6))
+plt.barh(range(len(feature_importances)), feature_importances[sorted_indices], align='center')
+plt.yticks(range(len(feature_importances)), sorted_feature_names)
+plt.xlabel('Feature Importance')
+plt.ylabel('Feature')
+plt.title('Feature Importances (XGBoost)')
+plt.show()
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_120_0.png)
+    
+
+
+Se puede ver que después del rebalanceamiento, la variable C1 sigue teniendo importancia para el modelo, aunque no tanta como la pudo tener en la versión previa. En este caso, el resto de variables presentan una mayor importancia, mientras que la más importante es C5
+
+
+```python
+plot_roc_curve( DTree_model_ada, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_122_0.png)
+    
+
+
+
+```python
+plot_confusion_matrix( DTree_model_ada, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_123_0.png)
+    
+
+
+Aún teniendo en cuenta lo anterior, se encuentra que el modelo balanceado es decente para la clasificación.
+
+### Random Forest
+
+
+```python
+with open( 'Models/RandomForestModel.pkl', 'rb' ) as f:
+    RForest_model_base = load( f )
+    RForest_model_ada = load( f )
+```
+
+#### Base
+
+
+```python
+DataFrame( [RForest_model_base.best_params_], index = ['Random Forest base'] )
+```
+
+
+```python
+result = evaluate_model( RForest_model_base, X_test, y_test )
+indexes.append( 'Random Forest base' )
+results.append( result )
+DataFrame( [result], index = ['Random Forest base'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>XGBoost base</th>
+      <td>0.862516</td>
+      <td>0.161879</td>
+      <td>0.272597</td>
+      <td>0.841861</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Podemos ver que tiene tanto una buena precisión, como un buen AUC.
+
+
+```python
+feature_importances = RForest_model_base.best_estimator_.feature_importances_
+sorted_indices = argsort(feature_importances)
+sorted_feature_names = [X_train.columns[i] for i in sorted_indices]
+
+plt.figure(figsize=(10, 6))
+plt.barh(range(len(feature_importances)), feature_importances[sorted_indices], align='center')
+plt.yticks(range(len(feature_importances)), sorted_feature_names)
+plt.xlabel('Feature Importance')
+plt.ylabel('Feature')
+plt.title('Feature Importances (XGBoost)')
+plt.show()
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_131_0.png)
+    
+
+
+Como es tendencia para otros modelos, las variables que más influyen en la decisión para el conjunto baje son C1 y el código de producto.
+
+
+```python
+plot_confusion_matrix( RForest_model_base, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_133_0.png)
+    
+
+
+Por otro lado, se observa el comportamiento esperado donde se clasifica la mayoría de las etiquetas como negativas dado el desbalance.
+
+
+```python
+plot_roc_curve( RForest_model_base, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_135_0.png)
+    
+
+
+#### AdaSyn
+
+
+```python
+DataFrame( [RForest_model_ada.best_params_], index = ['Random Forest AdaSyn'] )
+```
+
+
+```python
+result = evaluate_model( RForest_model_ada, X_test, y_test )
+indexes.append( 'Random Forest AdaSyn' )
+results.append( result )
+DataFrame( [result], index = ['Random Forest AdaSyn'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Random Forest AdaSyn</th>
+      <td>0.12601</td>
+      <td>0.667965</td>
+      <td>0.212023</td>
+      <td>0.83184</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Este modelo también sigue la tendencia de intercambiar precision por recall, curiosamente el auc sufre un impacto mediado con respecto a la base desbalanceada.
+
+
+```python
+feature_importances = RForest_model_ada.best_estimator_.feature_importances_
+sorted_indices = argsort(feature_importances)
+sorted_feature_names = [X_train.columns[i] for i in sorted_indices]
+
+plt.figure(figsize=(10, 6))
+plt.barh(range(len(feature_importances)), feature_importances[sorted_indices], align='center')
+plt.yticks(range(len(feature_importances)), sorted_feature_names)
+plt.xlabel('Feature Importance')
+plt.ylabel('Feature')
+plt.title('Feature Importances (XGBoost)')
+plt.show()
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_140_0.png)
+    
+
+
+Así como es tendencia para otros modelos, Las variables más importantes son C5 y V101, mientras el resto de variables tienen un grado de importancia.
+
+
+```python
+plot_confusion_matrix( RForest_model_ada, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_142_0.png)
+    
+
+
+Podemos ver el resultado del rebalanceamiento en esta gráfica, y el intercambio de métricas antes mencionado.
+
+
+```python
+plot_roc_curve( RForest_model_ada, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_144_0.png)
+    
+
+
+A su vez, la curva roc se mantiene similar a su versión sin balancear.
+
+### XGBoost
+
+
+```python
+from pandas import DataFrame
+with open( 'Models/XGBoostModel.pkl', 'rb' ) as f:
+    XGBoost_model_base = load( f )
+    XGBoost_model_ada = load( f )
+```
+
+
+```python
+from numpy import array
+y_test = array(y_test)
+```
+
+#### Base
+
+El modelo con la base de datos sin AdaSyn resultó en los siguientes parámetros
+
+
+```python
+DataFrame( [XGBoost_model_base.best_params_], index = ['XGBoost base'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>learning_rate</th>
+      <th>max_depth</th>
+      <th>n_estimators</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>XGBoost base</th>
+      <td>0.051461</td>
+      <td>8</td>
+      <td>177</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Podemos visualizar qué variables influyen fuertemente en la decisión del arbol por medio del siguiente gráfico
+
+
+```python
+from numpy import argsort
+
+feature_importances = XGBoost_model_base.best_estimator_.feature_importances_
+sorted_indices = argsort(feature_importances)
+sorted_feature_names = [X_train.columns[i] for i in sorted_indices]
+
+plt.figure(figsize=(10, 6))
+plt.barh(range(len(feature_importances)), feature_importances[sorted_indices], align='center')
+plt.yticks(range(len(feature_importances)), sorted_feature_names)
+plt.xlabel('Feature Importance')
+plt.ylabel('Feature')
+plt.title('Feature Importances (XGBoost)')
+plt.show()
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_153_0.png)
+    
+
+
+Es evidente que la variable que más influenció en la predicción es el código de producto.
+
+Ahora bien, podemos ver el resultado de la evaluación del modelo en función del set de prueba:
+
+
+```python
+result = evaluate_model( XGBoost_model_base, X_test, y_test )
+indexes.append( 'XGBoost base' )
+results.append( result )
+DataFrame( [result], index = ['XGBoost base'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>XGBoost base</th>
+      <td>0.809617</td>
+      <td>0.303311</td>
+      <td>0.441296</td>
+      <td>0.875949</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Es evidente que dada la gran desproporción entre positivos y negativos, el recall sufre un gran golpe, por el contrario, tiene una precisión muy buena, por lo que es capaz de predecir correctamente los verdaderos negativos.
+
+
+```python
+plot_roc_curve(  XGBoost_model_base, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_158_0.png)
+    
+
+
+De la curva ROC podemos observar que a nivel general, tiene una capacidad decente de predicción, ya que a pesar de haber fallado en la mayoría de valores positivos, estos componen una fracción mínima del conjunto de datos.
+
+
+```python
+plot_confusion_matrix( XGBoost_model_base, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_160_0.png)
+    
+
+
+Aquí podemos evidenciar de forma clara lo mencionado anteriormente, a pesar que el porcentaje de falsos positivos se mantiene extremadamente bajo, el precio es una predicción extremadamente inexacta para las transacciones fradulentas.
+
+#### AdaSyn
+
+El mejor modelo XGBoost para la base de datos balanceada resultó con los siguientes parámetros
+
+
+```python
+DataFrame( [XGBoost_model_ada.best_params_], index = ['XGBoost base'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>learning_rate</th>
+      <th>max_depth</th>
+      <th>n_estimators</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>XGBoost base</th>
+      <td>0.08501</td>
+      <td>8</td>
+      <td>93</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Podemos ver las variables más importantes para el modelo en la siguiente gráfica
+
+
+```python
+from numpy import argsort
+
+feature_importances = XGBoost_model_ada.best_estimator_.feature_importances_
+sorted_indices = argsort(feature_importances)
+sorted_feature_names = [X_train.columns[i] for i in sorted_indices]
+
+plt.figure(figsize=(10, 6))
+plt.barh(range(len(feature_importances)), feature_importances[sorted_indices], align='center')
+plt.yticks(range(len(feature_importances)), sorted_feature_names)
+plt.xlabel('Feature Importance')
+plt.ylabel('Feature')
+plt.title('Feature Importances (XGBoost)')
+plt.show()
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_166_0.png)
+    
+
+
+Así como en el modelo anterior, el código de producto tiene una influencia muy grande sobre la decisión final, pero a diferencia de esta, muchas más variables presentan una mayor importancia para la detección de fraude como las variables C1 y V101
+
+La evaluación del modelo es la siguiente:
+
+
+```python
+result = evaluate_model( XGBoost_model_ada, X_test, y_test )
+indexes.append( 'XGBoost AdaSyn' )
+results.append( result )
+DataFrame( [result], index = ['XGBoost AdaSyn'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>XGBoost AdaSyn</th>
+      <td>0.156822</td>
+      <td>0.567429</td>
+      <td>0.245731</td>
+      <td>0.827788</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+En comparación con el modelo anterior, presenta peores resultados en todas las métricas a excepción del Recall, lo que indica una mejor capacidad para detectar valores positivos en la variable respuesta. La curva ROC es la siguiente
+
+
+```python
+plot_roc_curve(  XGBoost_model_ada, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_171_0.png)
+    
+
+
+En comparación con el modelo base, esta curva ROC se ve ligeramente más cercana a la recta. Aún así, indica una buena capacidad para predecir la variable respuesta.
+
+
+```python
+plot_confusion_matrix( XGBoost_model_ada, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_173_0.png)
+    
+
+
+Podemos ver el resultado del balanceamiento claramente en la matriz de correlación; a pesar que se pierde capacidad para predecir correctamente transacciones lícitas, tiene una capacidad mucho mejor para detectar transacciones fraudulentas.
+
+### K-NN
+
+
+```python
+with open( 'Models/KNN_Model.pkl', 'rb' ) as f:
+    KNN_model_base = load( f )
+    KNN_model_ada = load( f )
+```
+
+#### Base
+
+El mejor numero de vecinos encontrado es
+
+
+```python
+DataFrame( [{'k': KNN_model_base.n_neighbors}], index = ['K-nn Base'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>k</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Regresión Log base</th>
+      <td>114</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Los resultados del modelo se aprecian a continuación:
+
+
+```python
+result = evaluate_model( KNN_model_base, X_test, y_test )
+indexes.append( 'k-NN base' )
+results.append( result )
+DataFrame( [result], index = ['K-nn base'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>K-nn base</th>
+      <td>0.814925</td>
+      <td>0.132911</td>
+      <td>0.228548</td>
+      <td>0.81979</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Los resultados del modelo son similares a modelos anteriores, con una alta presisión y auc, y valores de f1 y recall bajos.
+
+
+```python
+plot_roc_curve( KNN_model_base, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_183_0.png)
+    
+
+
+
+```python
+plot_confusion_matrix( KNN_model_base, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_184_0.png)
+    
+
+
+#### AdaSyn
+
+
+```python
+DataFrame( [{'k': KNN_model_ada.n_neighbors}], index = ['K-nn AdaSyn'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>k</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>K-nn AdaSyn</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Curiosamente, el mejor modelo para el set balanceado es un 1-NN.
+
+
+```python
+result = evaluate_model( KNN_model_ada, X_test, y_test )
+indexes.append( 'k-NN AdaSyn' )
+results.append( result )
+DataFrame( [result], index = ['K-nn base'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>K-nn base</th>
+      <td>0.253661</td>
+      <td>0.497566</td>
+      <td>0.336018</td>
+      <td>0.722406</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Desafortunadamente, este modelo tambien sacrifica mucho la precisón por el recall. Curiosamente tiene un buen f1 y un auc no muy bueno.
+
+
+```python
+plot_roc_curve( KNN_model_ada, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_190_0.png)
+    
+
+
+
+```python
+plot_confusion_matrix( KNN_model_ada, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_191_0.png)
+    
+
+
+Una ventaja que posee este modelo con respecto a otros rebalanceados, es que mantiene una ventaja con respecto a el número de verdaderos negativos, mientras aumenta ligeramente el porcentaje de verdaderos positivos. A pesar que esta última proporción sea inferior al 50%.
+
+### Regresión logística con penalización
+
+
+```python
+from pandas import DataFrame
+with open( 'Models/LogisticModel.pkl', 'rb' ) as f:
+    LogReg_model_base = load( f )
+    LogReg_model_ada = load( f )
+```
+
+#### Modelo base
+
+Los mejores parámetros para el modelo base se ven a continuación
+
+
+```python
+DataFrame( [LogReg_model_base.best_params_], index = ['Regresión Log base'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>classifier__C</th>
+      <th>classifier__penalty</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Regresión Log base</th>
+      <td>7</td>
+      <td>l2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+result = evaluate_model( LogReg_model_base, X_test, y_test )
+indexes.append( 'LogReg base' )
+results.append( result )
+DataFrame( [result], index = ['Regresión Log base'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Regresión Log base</th>
+      <td>0.133333</td>
+      <td>0.000487</td>
+      <td>0.00097</td>
+      <td>0.743102</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Es bastante evidente que este es el peor modelo generado, solo teniendo un puntaje mediocre en el AUC. Veamos ahora la matriz de confusión generada para tener un mejor entendimiento de los resultados
+
+
+```python
+plot_confusion_matrix( LogReg_model_base, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_200_0.png)
+    
+
+
+Este modelo evidencia claramente el problema de tener una base de datos con una gran disparidad, ya que el modelo tiene una tendencia a predecir aproximadamente todos los puntos como falsos, por lo que se explica el buen desempeño en cuanto al AUC y el pobre desempeño en las otras métricas. Podemos ver a continuación la curva ROC generada.
+
+
+```python
+plot_roc_curve( LogReg_model_base, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_202_0.png)
+    
+
+
+Como se mencionó antes, tiene un peor desempeño a los modelos antes vistos. Aún así, la curva ROC indica que es un predictor decente para la variable respuesta.
+
+#### AdaSyn
+
+Los mejores parámetros para el modelo AdaSyn se ven a continuación
+
+
+```python
+DataFrame( [LogReg_model_ada.best_params_], index = ['Regresión Log AdaSyn'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>classifier__C</th>
+      <th>classifier__penalty</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Regresión Log AdaSyn</th>
+      <td>4</td>
+      <td>l1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+result = evaluate_model( LogReg_model_ada, X_test, y_test )
+indexes.append( 'LogReg AdaSyn' )
+results.append( result )
+DataFrame( [result], index = ['Regresión Log AdaSyn'] )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Regresión Log AdaSyn</th>
+      <td>0.080361</td>
+      <td>0.661879</td>
+      <td>0.14332</td>
+      <td>0.749017</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+El modelo sigue la tendencia de reducir la precisión para aumentar el recall. Se puede decir que tiene un AUC bajo comparado al resto.
+
+
+```python
+plot_roc_curve( LogReg_model_ada, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_209_0.png)
+    
+
+
+
+```python
+plot_confusion_matrix( LogReg_model_ada, X_test, y_test )
+```
+
+
+    
+![png](Ejercicio3_files/Ejercicio3_210_0.png)
+    
+
+
+Como se menciona en la revisión de resultados, el modelo disminuye los verdaderos negativos para aumentar los verdaderos positivos.
+
+## Comparación de modelos
+
+Podemos ver los resultados de todos lo modelos mediante la siguiente tabla.
+
+
+```python
+DataFrame( results, index = indexes )
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Naive Bayes Base</th>
+      <td>0.482731</td>
+      <td>0.146300</td>
+      <td>0.224547</td>
+      <td>0.751902</td>
+    </tr>
+    <tr>
+      <th>Naive Bayes AdaSyn</th>
+      <td>0.078335</td>
+      <td>0.701315</td>
+      <td>0.140928</td>
+      <td>0.752869</td>
+    </tr>
+    <tr>
+      <th>Decision Tree Base</th>
+      <td>0.782021</td>
+      <td>0.239289</td>
+      <td>0.366449</td>
+      <td>0.811308</td>
+    </tr>
+    <tr>
+      <th>Decision Tree AdaSyn</th>
+      <td>0.113877</td>
+      <td>0.606865</td>
+      <td>0.191769</td>
+      <td>0.795088</td>
+    </tr>
+    <tr>
+      <th>Random Forest base</th>
+      <td>0.862516</td>
+      <td>0.161879</td>
+      <td>0.272597</td>
+      <td>0.841861</td>
+    </tr>
+    <tr>
+      <th>Random Forest AdaSyn</th>
+      <td>0.126010</td>
+      <td>0.667965</td>
+      <td>0.212023</td>
+      <td>0.831840</td>
+    </tr>
+    <tr>
+      <th>XGBoost base</th>
+      <td>0.809617</td>
+      <td>0.303311</td>
+      <td>0.441296</td>
+      <td>0.875949</td>
+    </tr>
+    <tr>
+      <th>XGBoost AdaSyn</th>
+      <td>0.156822</td>
+      <td>0.567429</td>
+      <td>0.245731</td>
+      <td>0.827788</td>
+    </tr>
+    <tr>
+      <th>k-NN base</th>
+      <td>0.814925</td>
+      <td>0.132911</td>
+      <td>0.228548</td>
+      <td>0.819790</td>
+    </tr>
+    <tr>
+      <th>k-NN AdaSyn</th>
+      <td>0.253661</td>
+      <td>0.497566</td>
+      <td>0.336018</td>
+      <td>0.722406</td>
+    </tr>
+    <tr>
+      <th>LogReg base</th>
+      <td>0.133333</td>
+      <td>0.000487</td>
+      <td>0.000970</td>
+      <td>0.743102</td>
+    </tr>
+    <tr>
+      <th>LogReg AdaSyn</th>
+      <td>0.080361</td>
+      <td>0.661879</td>
+      <td>0.143320</td>
+      <td>0.749017</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Teniendo en cuenta que la métrica objetivo es el AUC, el mejor modelo proviene de un XGBoost con una tasa de aprendizaje del 0.051461, profundidad 8 y 177 estimadores. Cabe anotar que este tambien fue el que obtuvo mejor Precision y F1, tendencia que se viene encontrando desde el inicio. Por otro lado, el modelo con el mejor recall es un modelo de clasificación bayesiana para la base de datos rebalanceada.

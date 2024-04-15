@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Parte 1: Limpieza de los datos &#8212; My Jupyter Book</title>
+    <title>Parte 1: Limpieza de los datos &#8212; Parcial 2 Machine Learning</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -147,8 +147,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Parcial 2 Machine Learning - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Parcial 2 Machine Learning - Home"/>`);</script>
   
-    <p class="title logo__title">My Jupyter Book</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -220,6 +226,53 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FEjercicio3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -349,12 +402,36 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#parte-3-modelos-de-clasificacion">Parte 3: Modelos de clasificación</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-bayesiana">Clasificación Bayesiana</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arboles-de-decision">Árboles de decisión</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">XGBoost</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nn">K-NN</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-logistica-con-penalizacion">Regresión logística con penalización</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-bayesiana">Clasificación Bayesiana</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base">Base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adasyn">AdaSyn</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arboles-de-decision">Árboles de decisión</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">AdaSyn</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">AdaSyn</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">XGBoost</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">AdaSyn</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nn">K-NN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">AdaSyn</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-logistica-con-penalizacion">Regresión logística con penalización</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-base">Modelo base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">AdaSyn</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-de-modelos">Comparación de modelos</a></li>
 </ul>
 </li>
@@ -2049,29 +2126,1310 @@ document.write(`
     <span class="n">dump</span><span class="p">(</span> <span class="p">(</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_bal</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">),</span> <span class="n">f</span> <span class="p">)</span>
 </pre></div>
 </div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;DataModels.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span> <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_bal</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+    <span class="n">y_train</span><span class="p">,</span> <span class="n">y_bal</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pickle</span> <span class="kn">import</span> <span class="n">load</span><span class="p">,</span> <span class="n">dump</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">roc_auc_score</span><span class="p">,</span> <span class="n">roc_curve</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">newaxis</span>
+
+<span class="k">def</span> <span class="nf">evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">):</span>
+    <span class="n">y_proba</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+    
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">set</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">}):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Predictions contain values other than 0 and 1&quot;</span><span class="p">)</span>
+    
+    <span class="n">precision</span> <span class="o">=</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">recall</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">f1</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_proba</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;Precision&#39;</span><span class="p">:</span> <span class="n">precision</span><span class="p">,</span>
+        <span class="s1">&#39;Recall&#39;</span><span class="p">:</span> <span class="n">recall</span><span class="p">,</span>
+        <span class="s1">&#39;F1&#39;</span><span class="p">:</span> <span class="n">f1</span><span class="p">,</span>
+        <span class="s1">&#39;AUC&#39;</span><span class="p">:</span> <span class="n">auc</span>
+    <span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">plot_roc_curve</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">):</span>
+    <span class="n">y_proba</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+    
+    <span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_proba</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Curva ROC(area = </span><span class="si">{</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_proba</span><span class="p">)</span><span class="si">}</span><span class="s1">)&#39;</span> <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Porcentaje de Falsos Positivos&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Porcentaje de Verdaderos Positivos&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Curva ROC&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">plot_confusion_matrix</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">):</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    
+    <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    
+    <span class="n">cm_norm</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">cm</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">newaxis</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm_norm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.2f&quot;</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">annot_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">})</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Predicho&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Verdadero&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Matriz de confusión&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">indexes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
 <section id="clasificacion-bayesiana">
 <h2>Clasificación Bayesiana<a class="headerlink" href="#clasificacion-bayesiana" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;Models/NaiveBayesModel.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span> <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">NBayes_model_base</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+    <span class="n">NBayes_model_ada</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+</pre></div>
+</div>
+<section id="base">
+<h3>Base<a class="headerlink" href="#base" title="Link to this heading">#</a></h3>
+<p>Los resultados del modelo en el set de prueba son los siguientes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span> <span class="n">NBayes_model_base</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+<span class="n">indexes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="s1">&#39;Naive Bayes Base&#39;</span> <span class="p">)</span>
+<span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">result</span> <span class="p">)</span>
+<span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">result</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Naive Bayes&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Naive Bayes</th>
+      <td>0.482731</td>
+      <td>0.1463</td>
+      <td>0.224547</td>
+      <td>0.751902</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Los puntajes del modelo son muy bajos, lo que implica que el modelo no va a ser un buen clasificador para la variable respuesta. Lo único rescatable puede ser su puntaje de AUC, pero como se verá en próximos modelos, es uno de los más bajos.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span> <span class="n">NBayes_model_base</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_89_0.png" /></p>
+<p>La curva ROC nos muestra que la clasificación es pasable para detectar la categoría de la variable respuesta, aún así, se encuentra muy lejos de ser un buen modelo.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_confusion_matrix</span><span class="p">(</span> <span class="n">NBayes_model_base</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_91_0.png" /></p>
+<p>En esta gráfica se puede evidenciar lo que será el problema para muchos modelos en este trabajo: tiene una mayor tendencia a predecir una etiqueta como negativa, ya que el desbalance genera una tendencia para los modelos de sobreajustarse a la categoría mayoritaria.</p>
+</section>
+<section id="adasyn">
+<h3>AdaSyn<a class="headerlink" href="#adasyn" title="Link to this heading">#</a></h3>
+<p>Los resultados del modelo se ven a continuación:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span> <span class="n">NBayes_model_ada</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+<span class="n">indexes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="s1">&#39;Naive Bayes AdaSyn&#39;</span> <span class="p">)</span>
+<span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">result</span> <span class="p">)</span>
+<span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">result</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Naive Bayes&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Naive Bayes</th>
+      <td>0.078335</td>
+      <td>0.701315</td>
+      <td>0.140928</td>
+      <td>0.752869</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Es evidente la diferencia abismal entre los dos modelos, ya que sus precision y recall estan casi intercambiados, esto sin mejorar su AUC.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span> <span class="n">NBayes_model_ada</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_97_0.png" /></p>
+<p>Su curva ROC presenta un comportamiento similar al base, como se evidencia en su similitud de valores AUC.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_confusion_matrix</span><span class="p">(</span> <span class="n">NBayes_model_ada</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_99_0.png" /></p>
+<p>Ahora biem, esta gráfica permite entender la importancia del rebalanceamiento de los datos, ya que permitió homogeneizar el porcentaje de tanto verdaderos positivos como de verdaderos negativos. Cabe aclarar que las deficiencias en los scores se deben al hecho que la variable de prueba no está rebalanceada, por lo que los negativos que no llega a predecir suman más al error que aquellas positivas que no predice.</p>
+</section>
 </section>
 <section id="arboles-de-decision">
 <h2>Árboles de decisión<a class="headerlink" href="#arboles-de-decision" title="Link to this heading">#</a></h2>
+<p>El modelo resultante queda de la siguiente forma</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;Models/DecisionTreeModel.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span> <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">DTree_model_base</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+    <span class="n">DTree_model_ada</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+</pre></div>
+</div>
+<section id="id1">
+<h3>Base<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Los parámetros del árbol son los siguientes</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">DTree_model_base</span><span class="o">.</span><span class="n">best_params_</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Decision Tree base&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>max_depth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Decision Tree base</th>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span> <span class="n">DTree_model_base</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+<span class="n">indexes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="s1">&#39;Decision Tree Base&#39;</span> <span class="p">)</span>
+<span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">result</span> <span class="p">)</span>
+<span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">result</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Decision Tree&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Decision Tree</th>
+      <td>0.782021</td>
+      <td>0.239289</td>
+      <td>0.366449</td>
+      <td>0.811308</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Está claro que a comparación del modelo anterior, presenta mejores scores en todos los tipos. Incluso es capaz de tener un recall relativamente alto con respecto al resto de modelos base.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">argsort</span>
+
+<span class="n">feature_importances</span> <span class="o">=</span> <span class="n">DTree_model_base</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">feature_importances_</span>
+<span class="n">sorted_indices</span> <span class="o">=</span> <span class="n">argsort</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)</span>
+<span class="n">sorted_feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sorted_indices</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)),</span> <span class="n">feature_importances</span><span class="p">[</span><span class="n">sorted_indices</span><span class="p">],</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)),</span> <span class="n">sorted_feature_names</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Feature Importance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Feature&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Feature Importances (XGBoost)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_109_0.png" /></p>
+<p>Se puede ver que la variable que mas influye en la desición del árbol es C1 y el código de producto, recordado que está codificada en la base de datos.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span> <span class="n">DTree_model_base</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_111_0.png" /></p>
+<p>La curva ROC indica que el modelo es apropiado para las predicciones, incluso se puede ver como se ajusta mejor al limite izquierdo del gráfico.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_confusion_matrix</span><span class="p">(</span> <span class="n">DTree_model_base</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_113_0.png" /></p>
+<p>Como se mencionó antes, el modelo no es muy bueno detectando fraudes. De todos modos hay que tener en cuenta que el porcentaje de verdaderos positivos es relativamente alto con respecto al resto.</p>
+</section>
+<section id="id2">
+<h3>AdaSyn<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">DTree_model_ada</span><span class="o">.</span><span class="n">best_params_</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Decision Tree AdaSyn&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>max_depth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Decision Tree base</th>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>El modelo comparte profundidad con su contraparte base.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span> <span class="n">DTree_model_ada</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+<span class="n">indexes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="s1">&#39;Decision Tree AdaSyn&#39;</span> <span class="p">)</span>
+<span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">result</span> <span class="p">)</span>
+<span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">result</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Decision Tree&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Decision Tree</th>
+      <td>0.113877</td>
+      <td>0.606865</td>
+      <td>0.191769</td>
+      <td>0.795088</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Al igual que en el modelo anterior, el recall aumenta de forma drástica, disminuyendo la presición. Tambien cabe resaltar la pérdida importante de F1 y AUC que presenta el modelo en comparación a la base, por lo que se puede decir que es un peor modelo para predecir la variable respuesta.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">feature_importances</span> <span class="o">=</span> <span class="n">DTree_model_ada</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">feature_importances_</span>
+<span class="n">sorted_indices</span> <span class="o">=</span> <span class="n">argsort</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)</span>
+<span class="n">sorted_feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sorted_indices</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)),</span> <span class="n">feature_importances</span><span class="p">[</span><span class="n">sorted_indices</span><span class="p">],</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)),</span> <span class="n">sorted_feature_names</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Feature Importance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Feature&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Feature Importances (XGBoost)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_120_0.png" /></p>
+<p>Se puede ver que después del rebalanceamiento, la variable C1 sigue teniendo importancia para el modelo, aunque no tanta como la pudo tener en la versión previa. En este caso, el resto de variables presentan una mayor importancia, mientras que la más importante es C5</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span> <span class="n">DTree_model_ada</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_122_0.png" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_confusion_matrix</span><span class="p">(</span> <span class="n">DTree_model_ada</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_123_0.png" /></p>
+<p>Aún teniendo en cuenta lo anterior, se encuentra que el modelo balanceado es decente para la clasificación.</p>
+</section>
 </section>
 <section id="random-forest">
 <h2>Random Forest<a class="headerlink" href="#random-forest" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;Models/RandomForestModel.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span> <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">RForest_model_base</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+    <span class="n">RForest_model_ada</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+</pre></div>
+</div>
+<section id="id3">
+<h3>Base<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">RForest_model_base</span><span class="o">.</span><span class="n">best_params_</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Random Forest base&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span> <span class="n">RForest_model_base</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+<span class="n">indexes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="s1">&#39;Random Forest base&#39;</span> <span class="p">)</span>
+<span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">result</span> <span class="p">)</span>
+<span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">result</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Random Forest base&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>XGBoost base</th>
+      <td>0.862516</td>
+      <td>0.161879</td>
+      <td>0.272597</td>
+      <td>0.841861</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Podemos ver que tiene tanto una buena precisión, como un buen AUC.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">feature_importances</span> <span class="o">=</span> <span class="n">RForest_model_base</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">feature_importances_</span>
+<span class="n">sorted_indices</span> <span class="o">=</span> <span class="n">argsort</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)</span>
+<span class="n">sorted_feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sorted_indices</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)),</span> <span class="n">feature_importances</span><span class="p">[</span><span class="n">sorted_indices</span><span class="p">],</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)),</span> <span class="n">sorted_feature_names</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Feature Importance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Feature&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Feature Importances (XGBoost)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_131_0.png" /></p>
+<p>Como es tendencia para otros modelos, las variables que más influyen en la decisión para el conjunto baje son C1 y el código de producto.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_confusion_matrix</span><span class="p">(</span> <span class="n">RForest_model_base</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_133_0.png" /></p>
+<p>Por otro lado, se observa el comportamiento esperado donde se clasifica la mayoría de las etiquetas como negativas dado el desbalance.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span> <span class="n">RForest_model_base</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_135_0.png" /></p>
+</section>
+<section id="id4">
+<h3>AdaSyn<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">RForest_model_ada</span><span class="o">.</span><span class="n">best_params_</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Random Forest AdaSyn&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span> <span class="n">RForest_model_ada</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+<span class="n">indexes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="s1">&#39;Random Forest AdaSyn&#39;</span> <span class="p">)</span>
+<span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">result</span> <span class="p">)</span>
+<span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">result</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Random Forest AdaSyn&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Random Forest AdaSyn</th>
+      <td>0.12601</td>
+      <td>0.667965</td>
+      <td>0.212023</td>
+      <td>0.83184</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Este modelo también sigue la tendencia de intercambiar precision por recall, curiosamente el auc sufre un impacto mediado con respecto a la base desbalanceada.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">feature_importances</span> <span class="o">=</span> <span class="n">RForest_model_ada</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">feature_importances_</span>
+<span class="n">sorted_indices</span> <span class="o">=</span> <span class="n">argsort</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)</span>
+<span class="n">sorted_feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sorted_indices</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)),</span> <span class="n">feature_importances</span><span class="p">[</span><span class="n">sorted_indices</span><span class="p">],</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)),</span> <span class="n">sorted_feature_names</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Feature Importance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Feature&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Feature Importances (XGBoost)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_140_0.png" /></p>
+<p>Así como es tendencia para otros modelos, Las variables más importantes son C5 y V101, mientras el resto de variables tienen un grado de importancia.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_confusion_matrix</span><span class="p">(</span> <span class="n">RForest_model_ada</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_142_0.png" /></p>
+<p>Podemos ver el resultado del rebalanceamiento en esta gráfica, y el intercambio de métricas antes mencionado.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span> <span class="n">RForest_model_ada</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_144_0.png" /></p>
+<p>A su vez, la curva roc se mantiene similar a su versión sin balancear.</p>
+</section>
 </section>
 <section id="xgboost">
 <h2>XGBoost<a class="headerlink" href="#xgboost" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;Models/XGBoostModel.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span> <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">XGBoost_model_base</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+    <span class="n">XGBoost_model_ada</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="id5">
+<h3>Base<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>El modelo con la base de datos sin AdaSyn resultó en los siguientes parámetros</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">XGBoost_model_base</span><span class="o">.</span><span class="n">best_params_</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;XGBoost base&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>learning_rate</th>
+      <th>max_depth</th>
+      <th>n_estimators</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>XGBoost base</th>
+      <td>0.051461</td>
+      <td>8</td>
+      <td>177</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Podemos visualizar qué variables influyen fuertemente en la decisión del arbol por medio del siguiente gráfico</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">argsort</span>
+
+<span class="n">feature_importances</span> <span class="o">=</span> <span class="n">XGBoost_model_base</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">feature_importances_</span>
+<span class="n">sorted_indices</span> <span class="o">=</span> <span class="n">argsort</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)</span>
+<span class="n">sorted_feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sorted_indices</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)),</span> <span class="n">feature_importances</span><span class="p">[</span><span class="n">sorted_indices</span><span class="p">],</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)),</span> <span class="n">sorted_feature_names</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Feature Importance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Feature&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Feature Importances (XGBoost)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_153_0.png" /></p>
+<p>Es evidente que la variable que más influenció en la predicción es el código de producto.</p>
+<p>Ahora bien, podemos ver el resultado de la evaluación del modelo en función del set de prueba:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span> <span class="n">XGBoost_model_base</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+<span class="n">indexes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="s1">&#39;XGBoost base&#39;</span> <span class="p">)</span>
+<span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">result</span> <span class="p">)</span>
+<span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">result</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;XGBoost base&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>XGBoost base</th>
+      <td>0.809617</td>
+      <td>0.303311</td>
+      <td>0.441296</td>
+      <td>0.875949</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Es evidente que dada la gran desproporción entre positivos y negativos, el recall sufre un gran golpe, por el contrario, tiene una precisión muy buena, por lo que es capaz de predecir correctamente los verdaderos negativos.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span>  <span class="n">XGBoost_model_base</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_158_0.png" /></p>
+<p>De la curva ROC podemos observar que a nivel general, tiene una capacidad decente de predicción, ya que a pesar de haber fallado en la mayoría de valores positivos, estos componen una fracción mínima del conjunto de datos.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_confusion_matrix</span><span class="p">(</span> <span class="n">XGBoost_model_base</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_160_0.png" /></p>
+<p>Aquí podemos evidenciar de forma clara lo mencionado anteriormente, a pesar que el porcentaje de falsos positivos se mantiene extremadamente bajo, el precio es una predicción extremadamente inexacta para las transacciones fradulentas.</p>
+</section>
+<section id="id6">
+<h3>AdaSyn<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>El mejor modelo XGBoost para la base de datos balanceada resultó con los siguientes parámetros</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">XGBoost_model_ada</span><span class="o">.</span><span class="n">best_params_</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;XGBoost base&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>learning_rate</th>
+      <th>max_depth</th>
+      <th>n_estimators</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>XGBoost base</th>
+      <td>0.08501</td>
+      <td>8</td>
+      <td>93</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Podemos ver las variables más importantes para el modelo en la siguiente gráfica</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">argsort</span>
+
+<span class="n">feature_importances</span> <span class="o">=</span> <span class="n">XGBoost_model_ada</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">feature_importances_</span>
+<span class="n">sorted_indices</span> <span class="o">=</span> <span class="n">argsort</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)</span>
+<span class="n">sorted_feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sorted_indices</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)),</span> <span class="n">feature_importances</span><span class="p">[</span><span class="n">sorted_indices</span><span class="p">],</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)),</span> <span class="n">sorted_feature_names</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Feature Importance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Feature&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Feature Importances (XGBoost)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_166_0.png" /></p>
+<p>Así como en el modelo anterior, el código de producto tiene una influencia muy grande sobre la decisión final, pero a diferencia de esta, muchas más variables presentan una mayor importancia para la detección de fraude como las variables C1 y V101</p>
+<p>La evaluación del modelo es la siguiente:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span> <span class="n">XGBoost_model_ada</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+<span class="n">indexes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="s1">&#39;XGBoost AdaSyn&#39;</span> <span class="p">)</span>
+<span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">result</span> <span class="p">)</span>
+<span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">result</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;XGBoost AdaSyn&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>XGBoost AdaSyn</th>
+      <td>0.156822</td>
+      <td>0.567429</td>
+      <td>0.245731</td>
+      <td>0.827788</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>En comparación con el modelo anterior, presenta peores resultados en todas las métricas a excepción del Recall, lo que indica una mejor capacidad para detectar valores positivos en la variable respuesta. La curva ROC es la siguiente</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span>  <span class="n">XGBoost_model_ada</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_171_0.png" /></p>
+<p>En comparación con el modelo base, esta curva ROC se ve ligeramente más cercana a la recta. Aún así, indica una buena capacidad para predecir la variable respuesta.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_confusion_matrix</span><span class="p">(</span> <span class="n">XGBoost_model_ada</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_173_0.png" /></p>
+<p>Podemos ver el resultado del balanceamiento claramente en la matriz de correlación; a pesar que se pierde capacidad para predecir correctamente transacciones lícitas, tiene una capacidad mucho mejor para detectar transacciones fraudulentas.</p>
+</section>
 </section>
 <section id="k-nn">
 <h2>K-NN<a class="headerlink" href="#k-nn" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;Models/KNN_Model.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span> <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">KNN_model_base</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+    <span class="n">KNN_model_ada</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+</pre></div>
+</div>
+<section id="id7">
+<h3>Base<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>El mejor numero de vecinos encontrado es</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">[{</span><span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="n">KNN_model_base</span><span class="o">.</span><span class="n">n_neighbors</span><span class="p">}],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;K-nn Base&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>k</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Regresión Log base</th>
+      <td>114</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Los resultados del modelo se aprecian a continuación:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span> <span class="n">KNN_model_base</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+<span class="n">indexes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="s1">&#39;k-NN base&#39;</span> <span class="p">)</span>
+<span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">result</span> <span class="p">)</span>
+<span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">result</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;K-nn base&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>K-nn base</th>
+      <td>0.814925</td>
+      <td>0.132911</td>
+      <td>0.228548</td>
+      <td>0.81979</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Los resultados del modelo son similares a modelos anteriores, con una alta presisión y auc, y valores de f1 y recall bajos.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span> <span class="n">KNN_model_base</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_183_0.png" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_confusion_matrix</span><span class="p">(</span> <span class="n">KNN_model_base</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_184_0.png" /></p>
+</section>
+<section id="id8">
+<h3>AdaSyn<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">[{</span><span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="n">KNN_model_ada</span><span class="o">.</span><span class="n">n_neighbors</span><span class="p">}],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;K-nn AdaSyn&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>k</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>K-nn AdaSyn</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Curiosamente, el mejor modelo para el set balanceado es un 1-NN.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span> <span class="n">KNN_model_ada</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+<span class="n">indexes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="s1">&#39;k-NN AdaSyn&#39;</span> <span class="p">)</span>
+<span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">result</span> <span class="p">)</span>
+<span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">result</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;K-nn base&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>K-nn base</th>
+      <td>0.253661</td>
+      <td>0.497566</td>
+      <td>0.336018</td>
+      <td>0.722406</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Desafortunadamente, este modelo tambien sacrifica mucho la precisón por el recall. Curiosamente tiene un buen f1 y un auc no muy bueno.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span> <span class="n">KNN_model_ada</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_190_0.png" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_confusion_matrix</span><span class="p">(</span> <span class="n">KNN_model_ada</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_191_0.png" /></p>
+<p>Una ventaja que posee este modelo con respecto a otros rebalanceados, es que mantiene una ventaja con respecto a el número de verdaderos negativos, mientras aumenta ligeramente el porcentaje de verdaderos positivos. A pesar que esta última proporción sea inferior al 50%.</p>
+</section>
 </section>
 <section id="regresion-logistica-con-penalizacion">
 <h2>Regresión logística con penalización<a class="headerlink" href="#regresion-logistica-con-penalizacion" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;Models/LogisticModel.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span> <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">LogReg_model_base</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+    <span class="n">LogReg_model_ada</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+</pre></div>
+</div>
+<section id="modelo-base">
+<h3>Modelo base<a class="headerlink" href="#modelo-base" title="Link to this heading">#</a></h3>
+<p>Los mejores parámetros para el modelo base se ven a continuación</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">LogReg_model_base</span><span class="o">.</span><span class="n">best_params_</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Regresión Log base&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>classifier__C</th>
+      <th>classifier__penalty</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Regresión Log base</th>
+      <td>7</td>
+      <td>l2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span> <span class="n">LogReg_model_base</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+<span class="n">indexes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="s1">&#39;LogReg base&#39;</span> <span class="p">)</span>
+<span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">result</span> <span class="p">)</span>
+<span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">result</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Regresión Log base&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Regresión Log base</th>
+      <td>0.133333</td>
+      <td>0.000487</td>
+      <td>0.00097</td>
+      <td>0.743102</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Es bastante evidente que este es el peor modelo generado, solo teniendo un puntaje mediocre en el AUC. Veamos ahora la matriz de confusión generada para tener un mejor entendimiento de los resultados</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_confusion_matrix</span><span class="p">(</span> <span class="n">LogReg_model_base</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_200_0.png" /></p>
+<p>Este modelo evidencia claramente el problema de tener una base de datos con una gran disparidad, ya que el modelo tiene una tendencia a predecir aproximadamente todos los puntos como falsos, por lo que se explica el buen desempeño en cuanto al AUC y el pobre desempeño en las otras métricas. Podemos ver a continuación la curva ROC generada.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span> <span class="n">LogReg_model_base</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_202_0.png" /></p>
+<p>Como se mencionó antes, tiene un peor desempeño a los modelos antes vistos. Aún así, la curva ROC indica que es un predictor decente para la variable respuesta.</p>
+</section>
+<section id="id9">
+<h3>AdaSyn<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>Los mejores parámetros para el modelo AdaSyn se ven a continuación</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">LogReg_model_ada</span><span class="o">.</span><span class="n">best_params_</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Regresión Log AdaSyn&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>classifier__C</th>
+      <th>classifier__penalty</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Regresión Log AdaSyn</th>
+      <td>4</td>
+      <td>l1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span> <span class="n">LogReg_model_ada</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+<span class="n">indexes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="s1">&#39;LogReg AdaSyn&#39;</span> <span class="p">)</span>
+<span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">result</span> <span class="p">)</span>
+<span class="n">DataFrame</span><span class="p">(</span> <span class="p">[</span><span class="n">result</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Regresión Log AdaSyn&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Regresión Log AdaSyn</th>
+      <td>0.080361</td>
+      <td>0.661879</td>
+      <td>0.14332</td>
+      <td>0.749017</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>El modelo sigue la tendencia de reducir la precisión para aumentar el recall. Se puede decir que tiene un AUC bajo comparado al resto.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span> <span class="n">LogReg_model_ada</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_209_0.png" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_confusion_matrix</span><span class="p">(</span> <span class="n">LogReg_model_ada</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="_images/Ejercicio3_210_0.png" /></p>
+<p>Como se menciona en la revisión de resultados, el modelo disminuye los verdaderos negativos para aumentar los verdaderos positivos.</p>
+</section>
 </section>
 <section id="comparacion-de-modelos">
 <h2>Comparación de modelos<a class="headerlink" href="#comparacion-de-modelos" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<p>Podemos ver los resultados de todos lo modelos mediante la siguiente tabla.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="p">(</span> <span class="n">results</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">indexes</span> <span class="p">)</span>
 </pre></div>
 </div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Naive Bayes Base</th>
+      <td>0.482731</td>
+      <td>0.146300</td>
+      <td>0.224547</td>
+      <td>0.751902</td>
+    </tr>
+    <tr>
+      <th>Naive Bayes AdaSyn</th>
+      <td>0.078335</td>
+      <td>0.701315</td>
+      <td>0.140928</td>
+      <td>0.752869</td>
+    </tr>
+    <tr>
+      <th>Decision Tree Base</th>
+      <td>0.782021</td>
+      <td>0.239289</td>
+      <td>0.366449</td>
+      <td>0.811308</td>
+    </tr>
+    <tr>
+      <th>Decision Tree AdaSyn</th>
+      <td>0.113877</td>
+      <td>0.606865</td>
+      <td>0.191769</td>
+      <td>0.795088</td>
+    </tr>
+    <tr>
+      <th>Random Forest base</th>
+      <td>0.862516</td>
+      <td>0.161879</td>
+      <td>0.272597</td>
+      <td>0.841861</td>
+    </tr>
+    <tr>
+      <th>Random Forest AdaSyn</th>
+      <td>0.126010</td>
+      <td>0.667965</td>
+      <td>0.212023</td>
+      <td>0.831840</td>
+    </tr>
+    <tr>
+      <th>XGBoost base</th>
+      <td>0.809617</td>
+      <td>0.303311</td>
+      <td>0.441296</td>
+      <td>0.875949</td>
+    </tr>
+    <tr>
+      <th>XGBoost AdaSyn</th>
+      <td>0.156822</td>
+      <td>0.567429</td>
+      <td>0.245731</td>
+      <td>0.827788</td>
+    </tr>
+    <tr>
+      <th>k-NN base</th>
+      <td>0.814925</td>
+      <td>0.132911</td>
+      <td>0.228548</td>
+      <td>0.819790</td>
+    </tr>
+    <tr>
+      <th>k-NN AdaSyn</th>
+      <td>0.253661</td>
+      <td>0.497566</td>
+      <td>0.336018</td>
+      <td>0.722406</td>
+    </tr>
+    <tr>
+      <th>LogReg base</th>
+      <td>0.133333</td>
+      <td>0.000487</td>
+      <td>0.000970</td>
+      <td>0.743102</td>
+    </tr>
+    <tr>
+      <th>LogReg AdaSyn</th>
+      <td>0.080361</td>
+      <td>0.661879</td>
+      <td>0.143320</td>
+      <td>0.749017</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Teniendo en cuenta que la métrica objetivo es el AUC, el mejor modelo proviene de un XGBoost con una tasa de aprendizaje del 0.051461, profundidad 8 y 177 estimadores. Cabe anotar que este tambien fue el que obtuvo mejor Precision y F1, tendencia que se viene encontrando desde el inicio. Por otro lado, el modelo con el mejor recall es un modelo de clasificación bayesiana para la base de datos rebalanceada.</p>
 </section>
 </section>
 
@@ -2161,12 +3519,36 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#parte-3-modelos-de-clasificacion">Parte 3: Modelos de clasificación</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-bayesiana">Clasificación Bayesiana</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arboles-de-decision">Árboles de decisión</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">XGBoost</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nn">K-NN</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-logistica-con-penalizacion">Regresión logística con penalización</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-bayesiana">Clasificación Bayesiana</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base">Base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adasyn">AdaSyn</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arboles-de-decision">Árboles de decisión</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">AdaSyn</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">AdaSyn</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">XGBoost</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">AdaSyn</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nn">K-NN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">AdaSyn</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-logistica-con-penalizacion">Regresión logística con penalización</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-base">Modelo base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">AdaSyn</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-de-modelos">Comparación de modelos</a></li>
 </ul>
 </li>
@@ -2185,7 +3567,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book community
+By Ricardo Watts
 </p>
 
   </div>
